@@ -4,21 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <div class="choices">
-        <h2>Your choice:</h2>
-        <button type="button" class="guess">Rock</button>
-        <button type="button" class="guess">Paper</button>
-        <button type="button" class="guess">Scissors</button>
+    <div class="game">
+        <div class="choices">
+            <button type="button" class="guess">Rock</button>
+            <button type="button" class="guess">Paper</button>
+            <button type="button" class="guess">Scissors</button>
+        </div>
+        <div class="results">
+            <div class="score"></div>
+            <div class="message"></div>
+            <div class="winner"></div>
+        </div>
+        <button type="button" class="replay">Replay</button>
     </div>
-    <div class="results">
-        <div class="message"></div>
-        <div class="score"></div>
-        <div class="winner"></div>
-    </div>
-    
-<script src="./script.js"></script>    
+    <footer>
+        <p>Background image: <a href="https://unsplash.com/@marcus_wallis">Marcus Wallis @ Unsplash</a></p>
+        <script src="./script.js"></script>  
+    </footer> 
+
 </body>
+
+
 </html>

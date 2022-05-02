@@ -1,8 +1,12 @@
 const buttons = document.querySelectorAll('.guess');
 const score = document.querySelector('.score');
 const winner = document.querySelector('.winner');
+const replay = document.querySelector('.replay');
+
 let userScore = 0;
 let computerScore = 0;
+
+
 
 function computerPlay() {
     let choices = ['Rock', 'Paper', 'Scissors'];
@@ -67,11 +71,17 @@ function updateResult(result) {
     if (userScore === 5 || computerScore === 5) gameWon();
 }
 
-function playGame() {
-    userScore = 0;
-    computerScore = 0;
-
+function Game() {
     buttons.forEach(button => button.addEventListener('click', () => updateResult(playRound(button.textContent))));
+    replay.addEventListener('click', () => resetGame());
 }
 
-playGame();
+function resetGame() {
+    userScore = 0;
+    computerScore = 0;
+    score.textContent = `You: ${userScore}  Computer: ${computerScore}`;
+    winner.textContent = ``;
+    buttons.forEach(button => button.disabled = false);
+}
+
+Game();
