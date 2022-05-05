@@ -2,6 +2,9 @@ const buttons = document.querySelectorAll('.guess');
 const score = document.querySelector('.score');
 const winner = document.querySelector('.winner');
 const replay = document.querySelector('.replay');
+const message = document.querySelector('.message');
+const results = document.querySelector('.results');
+replay.addEventListener('click', () => resetGame());
 
 let userScore = 0;
 let computerScore = 0;
@@ -16,7 +19,6 @@ function computerPlay() {
 
 function playRound(playerSelection) {
     const computerSelection = computerPlay();
-    const message = document.querySelector('.message');
 
     if (playerSelection == computerSelection) {
         message.textContent = ("It's a tie.")
@@ -72,8 +74,12 @@ function updateResult(result) {
 }
 
 function Game() {
-    buttons.forEach(button => button.addEventListener('click', () => updateResult(playRound(button.textContent))));
-    replay.addEventListener('click', () => resetGame());
+    buttons.forEach(button => button.addEventListener('click', () => {
+        let result = playRound(button.textContent);
+        updateResult(result);
+        changeColor(result);
+    }));
+    
 }
 
 function resetGame() {
@@ -81,7 +87,25 @@ function resetGame() {
     computerScore = 0;
     score.textContent = `You: ${userScore}  Computer: ${computerScore}`;
     winner.textContent = ``;
+    message.textContent = ``;
     buttons.forEach(button => button.disabled = false);
+}
+
+function changeColor(result) {
+    if (result === true) {
+        results.classList.add('win');
+    }
+    else if (result === false) {
+        results.classList.add('lose');
+    }
+    else {
+        results.classList.add('tie');
+    }
+    results.addEventListener('transitionend', removeTransition);
+}
+
+function removeTransition() {
+    this.classList.remove('win', 'lose', 'tie');
 }
 
 Game();

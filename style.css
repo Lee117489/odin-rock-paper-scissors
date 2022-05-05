@@ -63,3 +63,27 @@ a {
     min-height: 70px;
     min-width: 230px;
 }
+
+.win {
+    /* color: rgba(0, 128, 0, 0.86); */
+    border-color:rgba(0, 128, 0, 0.86);
+    box-shadow: 0 0 1rem rgba(0, 128, 0, 0.86);
+    transition: all 1s ease-out;
+    
+}
+
+.lose {
+    /* color: rgba(255, 0, 0, 0.736); */
+    border-color:rgba(255, 0, 0, 0.736);
+    box-shadow: 0 0 1rem rgba(255, 0, 0, 0.736);
+    transition: all 1s ease-out;
+    
+}
+
+.tie {
+    /* color: #ffc600; */
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+    transition: all 1s ease-out;
+    
+}
